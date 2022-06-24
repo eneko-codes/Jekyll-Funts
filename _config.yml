@@ -1,0 +1,77 @@
+# SEARCH ENGINE INDEXING
+title: Eneko Zabala # The website name. Will show in the page header and search engine.
+description: > # The website description. Will show in the search engine.
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results).
+
+# TRACKING
+google_analytics: G-HLN5SX8W6D # Put your Google Analytics ID to track visitors and learn how they interact with your website.
+
+# OTHER SETTINGS
+date_format: "%Y/%m/%d" # Sets the default date format.
+url: enekozabala.me # The website's base url.
+show_excerpts: true # Set to true to show excerpts on the blog page.
+show_table_of_contents: true # Set to true to show the blog's table of contents.
+use_animations: true # Set to false for better loading times. Set to true for an enchanced user experience.
+use_newsletter: false
+allow_comments: false
+language: en
+
+# FILTERS
+show_searchbar: true # Set to true if you want the user to be able to search blogs, categories (if enabled), tags (if enabled), authors (if enabled) and author's social media (if enabled).
+multiple_authors: false # Set to false to hide blog authors. If set to true, an option to filter the blogs by authors will show up in the blog page.
+use_categories: false # Set to true if you wish to show categories on your blogs. If set to true, an option to filter the blogs by categories will show up in the blog page.
+use_tags: false # Set to true if you wish to show tags on your blogs. If set to true, an option to filter the blogs by tags will show up in the blog page.
+
+# FRONT MATTER DEFAULTS
+defaults:
+  # Post defaults
+  - scope:
+      path: "" # An empty string here means all files in the project
+      type: blogs # Apply the default values below only to blogs
+    values:
+      image: assets/images/posts/default.jpg
+      author: Eneko Zabala
+
+# CONTACT INFORMATION
+author: # The default author's information.
+  name: Eneko Zabala
+  email: contact@enekozabala.me
+social_links: # Generates social links in footer. Comment out the platforms you do not want to use.
+  twitter: jekyllrb
+  github:  jekyll
+  # devto: jekyll
+  # dribbble: jekyll
+  # facebook: jekyll
+  # flickr:   jekyll
+  # instagram: jekyll
+  # linkedin: jekyll
+  # pinterest: jekyll
+  # youtube: jekyll
+  # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+  # youtube_channel_name: CloudCannon
+  # telegram: jekyll
+  # googleplus: +jekyll
+  # microdotblog: jekyll
+  # keybase: jekyll
+
+  # Mastodon instances
+  # mastodon:
+  # - username: jekyll
+  #   instance: example.com
+  # - username: jekyll2
+  #   instance: example.com
+
+  # GitLab instances
+  # gitlab:
+  # - username: jekyll
+  #   instance: example.com
+  # - username: jekyll2
+  #   instance: example.com
+
+# BUILD SETTINGS
+theme: funts
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
