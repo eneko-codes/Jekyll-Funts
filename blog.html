@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+<div class="blog">
+    {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+
+    {% for post in site.posts %}
+    <div class="blog-post">
+        <img class="blog-post-thumbnail" src="{{ site.url }}/{{ post.image }}" itemprop="thumbnail">
+        <div class="blog-post-meta">
+            <p class="blog-post-date">{{ post.date | date: date_format }}</p>
+            <h3>
+                <a class="blog-post-title" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+            </h3>
+            {%- if site.show_excerpts -%}
+            <div class="blog-post-excerpt">{{ post.excerpt }}</div>
+            {%- endif -%}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    

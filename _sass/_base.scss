@@ -1,0 +1,204 @@
+
+html {
+  font-size: $base-font-size;
+}
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+
+}
+
+/**
+ * Basic styling
+ */
+body {
+  font: $base-font-weight #{$base-font-size}/#{$title-line-height} $primary-font-family;
+  @include theme('color', $primary-text-color);
+  @include theme('background-color', $primary-background-color);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-wrap: break-word;
+
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $content-width;
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+  line-height: $title-line-height;
+}
+
+hr {
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+}
+
+/**
+ * `main` element
+ */
+main {
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+}
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size:  $base-font-size;
+}
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight;
+}
+
+/**
+ * Links
+ */
+a {
+  @include theme('color', $accent-color);
+  text-decoration: none;
+
+  &:hover {
+  @include theme('color', $accent-color-hover);
+    text-decoration: underline;
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  @include theme('color', $primary-text-color);
+  @include theme('border-color', $border-color);
+  border-left: 4px solid;
+  padding-left: $spacing-unit / 2;
+  @include relative-font-size(1.125);
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  i, em {
+    font-style: normal;
+  }
+}
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-family: $code-font-family;
+  font-size: 0.9375em;
+  border-radius: 3px;
+  background-color: $code-background-color;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.highlight {
+  border-radius: 3px;
+  @include theme('background', $code-background-color);
+  @extend %vertical-rhythm;
+
+  .highlighter-rouge & {
+    @include theme('background', $code-background-color);
+  }
+}
+
+/**
+ * Tables
+ */
+table {
+  margin-bottom: $spacing-unit;
+  width: 100%;
+  text-align: center;
+  @include theme('color', $primary-text-color);
+  border-collapse: collapse;
+  @include theme('border-color', $border-color);
+  border: 1px solid;
+  // tr {
+  //   &:nth-child(even) {
+  //     @include theme('background-color', $border-color);
+  //   }
+  // }
+  th, td {
+    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+  }
+  th {
+    @include theme('background-color', $secondary-background-color);
+    @include theme('border-color', $border-color);
+    border: 1px solid;
+  }
+  td {
+    @include theme('border-color', $border-color);
+    border: 1px solid;
+  }
+}

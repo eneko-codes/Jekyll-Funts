@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+// Font variables
+$primary-font-family: "Work Sans", sans-serif !default;
+$secondary-font-family: 'Source Sans Pro', sans-serif !default;
+$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !default;
+$base-font-size:   18px !default;
+$base-font-weight: 400 !default;
+$light-font-weight: 200 !default;
+$heavy-font-weight: 900 !default;
+$title-line-height: 1.2 !default;
+$body-line-height: 1.5 !default;
+
+// Spacing variables
+$spacing-unit:     30px !default;
+
+// Width of the content area
+$content-width:    800px !default;
+$mobile:          800px !default;
+
+// Theme variables
+$dark-theme: "dark-theme";
+$light-theme: "light-theme";
+
+// Color variables
+$primary-text-color: "primary-text-color";
+$secondary-text-color: "secondary-text-color";
+$accent-color: "accent-color";
+$accent-color-hover: "accent-color-hover";
+$primary-background-color: "primary-background-color";
+$secondary-background-color: "secondary-background-color";
+$code-background-color: "code-background-color";
+$border-color: "border-color";
+
+$themes: (
+        $light-theme: (
+                $primary-text-color: #000000,
+                $secondary-text-color: #353535,
+                $accent-color: #4c80bf,
+                $accent-color-hover: #346baf,
+                $primary-background-color: #E4E4E4,
+                $secondary-background-color: #D8D8D8,
+                $code-background-color: #D8D8D8,
+                $border-color: #1c1c1c,
+        ),
+        $dark-theme: (
+                $primary-text-color: #FFFFFF,
+                $secondary-text-color: #B8B8B8,
+                $accent-color: #4c80bf,
+                $accent-color-hover: #346baf,
+                $primary-background-color: #181818,
+                $secondary-background-color: #000000,
+                $code-background-color: #383838,
+                $border-color: #afafaf,
+        )
+);
+
+// Theme mixins
+@mixin themeProperty($theme, $property, $color, $additionalPropertiesPositionIsFront, $additionalProperties) {
+  @if $additionalPropertiesPositionIsFront {
+    #{$property}: unquote($additionalProperties + ' ' + map-get($theme, $color));
+  } @else {
+    #{$property}: unquote(map-get($theme, $color) + ' ' + $additionalProperties);
+  }
+}
+
+@mixin theme($property, $color, $additionalPropertiesPositionIsFront: false, $additionalProperties: '') {
+  $light: map-get($themes, $light-theme);
+  $dark: map-get($themes, $dark-theme);
+
+  @include themeProperty($light, $property, $color, $additionalPropertiesPositionIsFront, $additionalProperties);
+
+  @media (prefers-color-scheme: dark) {
+    @include themeProperty($dark, $property, $color, $additionalPropertiesPositionIsFront, $additionalProperties);
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: #{$ratio}rem;
+}
+
